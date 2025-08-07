@@ -23,6 +23,13 @@ struct ContentView: View {
           .foregroundStyle(.secondary)
           .padding(50)
           .background(.ultraThinMaterial)
+        
+        // Another text
+        Text("I am looking forward to the picnic")
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
+          .foregroundStyle(.white)
+          .background(.red.gradient)
+        
       }
       .ignoresSafeArea()
     }
