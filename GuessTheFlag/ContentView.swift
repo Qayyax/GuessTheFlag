@@ -16,7 +16,7 @@ struct ContentView: View {
             .init(color: .green, location: 0.45),
             .init(color: .yellow, location: 0.55),
           ], startPoint: .top, endPoint: .bottom)
-          Color.blue
+          AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
         }
         // Text
         Text("I am happy")
