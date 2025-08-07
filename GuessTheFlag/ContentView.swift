@@ -9,11 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-      ZStack{
-        Color.red
-        Text("I am going on a date with Mayesha")
+      ZStack {
+        // Vstack
+        VStack(spacing: 0) {
+          Color.red
+          Color.blue
+        }
+        // Text
+        Text("I am happy")
+          .foregroundStyle(.secondary)
+          .padding(50)
+          .background(.ultraThinMaterial)
       }
-      .ignoresSafeArea()
     }
 }
 
