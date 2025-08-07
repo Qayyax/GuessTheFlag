@@ -13,8 +13,8 @@ struct ContentView: View {
         // Vstack
         VStack(spacing: 0) {
           LinearGradient(stops: [
-            Gradient.Stop(color: .green, location: 0.45),
-            Gradient.Stop(color: .yellow, location: 0.55),
+            .init(color: .green, location: 0.45),
+            .init(color: .yellow, location: 0.55),
           ], startPoint: .top, endPoint: .bottom)
           Color.blue
         }
