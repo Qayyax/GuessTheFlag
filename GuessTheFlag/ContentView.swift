@@ -68,7 +68,12 @@ struct ContentView: View {
     .alert(scoreTitle, isPresented: $showingScore) {
       Button("Continue", action:askQuestion)
     } message: {
-      Text("Your score is \(score)")
+      if scoreTitle == "Wrong" {
+        Text("That's the flag of \(countries[correctAnswer])")
+        Text("Your score is \(score)")
+      } else {
+        Text("Your score is \(score)")
+      }
     }
   }
   // after the body
