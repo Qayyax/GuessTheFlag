@@ -8,24 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State private var showingAlert = false
+  
     var body: some View {
       VStack{
-        Button {
-          print("Edit button was tapped")
-        } label: {
-          Image(systemName: "pencil")
-            .border(.blue)
+        Button("Show Alert") {
+          showingAlert = true
         }
-        Button ("Edit", systemImage: "pencil") {
-          print("Edit button was tapped")
-        }
-        Button {
-          print("I have a date")
-        } label: {
-          Label("Edit", systemImage: "fish")
-            .padding()
-            .foregroundStyle(.white)
-            .background(.red)
+        .alert("Important message", isPresented: $showingAlert) {
+          Button("OK") {}
         }
       }
     }
