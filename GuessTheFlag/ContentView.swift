@@ -9,19 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-      ZStack {
-        // Vstack
-        VStack(spacing: 0) {
-          LinearGradient(stops: [
-            .init(color: .green, location: 0.45),
-            .init(color: .yellow, location: 0.55),
-          ], startPoint: .top, endPoint: .bottom)
-          AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
+      VStack{
+        Button("Button 1") { }
+          .buttonStyle(.bordered)
+        Button("Button 2", role: .destructive) { }
+          .buttonStyle(.bordered)
+        Button("Button 3") { }
+          .buttonStyle(.borderedProminent)
+          .tint(.mint)
+        Button("Button 1", role: .destructive) { }
+          .buttonStyle(.borderedProminent)
+        Button {
+          print("Button was tapped")
+        } label: {
+          Text("Tap me")
+            .padding()
+            .foregroundStyle(.white)
+            .background(.red)
         }
-        // Text
-        Button ("Delete Section", action: executeDelete) 
       }
-      .ignoresSafeArea()
     }
   func executeDelete() {
     print("Now deleting")
