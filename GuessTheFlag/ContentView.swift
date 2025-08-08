@@ -18,7 +18,7 @@ struct ContentView: View {
     ZStack {
       LinearGradient(colors: [.purple, .black], startPoint: .top, endPoint: .bottom)
         .ignoresSafeArea()
-      VStack(spacing: 30) {
+      VStack(spacing: 15) {
         VStack {
           Text("Tap the flag of")
             .foregroundStyle(.white)
@@ -37,6 +37,10 @@ struct ContentView: View {
               .clipShape(.capsule)
               .shadow(color: .red, radius: 5)
           }}
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 20)
+        .background(.regularMaterial)
+        .clipShape(.rect(cornerRadius: 20))
       }
     }
     .alert(scoreTitle, isPresented: $showingScore) {
