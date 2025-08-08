@@ -16,7 +16,8 @@ struct ContentView: View {
   
   var body: some View {
     ZStack {
-      Color.blue.ignoresSafeArea(edges: .all)
+      LinearGradient(colors: [.purple, .black], startPoint: .top, endPoint: .bottom)
+        .ignoresSafeArea()
       VStack(spacing: 30) {
         VStack {
           Text("Tap the flag of")
@@ -28,11 +29,16 @@ struct ContentView: View {
         
         ForEach(0..<3) { number in
           Button {
-            // flag was tapped
+            flagTapped(number)
           } label: {
             Image(countries[number])
           }}
       }
+    }
+    .alert(scoreTitle, isPresented: $showingScore) {
+      Button("Continue", action:askQuestion)
+    } message: {
+      Text("Your score is ???")
     }
   }
   // after the body
