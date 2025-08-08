@@ -94,7 +94,7 @@ struct ContentView: View {
     } else {
       scoreTitle = "Wrong"
     }
-    if questionCount == maxQuestionCount {
+    if questionCount >= maxQuestionCount {
       showingScore = false
       showingFinalAlert = true
     } else {
@@ -105,8 +105,9 @@ struct ContentView: View {
   func askQuestion() {
     countries.shuffle()
     correctAnswer = Int.random(in: 0...2)
-    if questionCount == maxQuestionCount {
+    if questionCount >= maxQuestionCount {
       score = 0
+      questionCount = 0
     }
   }
 }
