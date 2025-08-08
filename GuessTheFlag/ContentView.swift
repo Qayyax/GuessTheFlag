@@ -18,29 +18,35 @@ struct ContentView: View {
     ZStack {
       LinearGradient(colors: [.purple, .black], startPoint: .top, endPoint: .bottom)
         .ignoresSafeArea()
-      VStack(spacing: 15) {
-        VStack {
-          Text("Tap the flag of")
-            .foregroundStyle(.white)
-            .font(.subheadline.weight(.heavy))
+      VStack(spacing: 20){
+        Text("Guess the Flag")
+          .font(.largeTitle.weight(.bold))
+          .foregroundStyle(.white)
+          .shadow(color: .black, radius: 2)
+        VStack(spacing: 15) {
+          VStack {
+            Text("Tap the flag of")
+              .foregroundStyle(.white)
+              .font(.subheadline.weight(.heavy))
+            
+            Text(countries[correctAnswer])
+              .foregroundStyle(.white)
+              .font(.largeTitle.weight(.semibold))
+          }
           
-          Text(countries[correctAnswer])
-            .foregroundStyle(.white)
-            .font(.largeTitle.weight(.semibold))
+          ForEach(0..<3) { number in
+            Button {
+              flagTapped(number)
+            } label: {
+              Image(countries[number])
+                .clipShape(.capsule)
+                .shadow(color: .red, radius: 5)
+            }}
+          .frame(maxWidth: .infinity)
+          .padding(.vertical, 20)
+          .background(.regularMaterial)
+          .clipShape(.rect(cornerRadius: 20))
         }
-        
-        ForEach(0..<3) { number in
-          Button {
-            flagTapped(number)
-          } label: {
-            Image(countries[number])
-              .clipShape(.capsule)
-              .shadow(color: .red, radius: 5)
-          }}
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 20)
-        .background(.regularMaterial)
-        .clipShape(.rect(cornerRadius: 20))
       }
     }
     .alert(scoreTitle, isPresented: $showingScore) {
