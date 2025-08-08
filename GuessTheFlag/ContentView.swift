@@ -19,12 +19,13 @@ struct ContentView: View {
       LinearGradient(colors: [.purple, .black], startPoint: .top, endPoint: .bottom)
         .ignoresSafeArea()
       VStack(spacing: 20){
+        Spacer()
         Text("Guess the Flag")
           .font(.largeTitle.bold())
           .foregroundStyle(.white)
           .shadow(color: .black, radius: 2)
         VStack(spacing: 15) {
-          VStack {
+          VStack (spacing: 5){
             Text("Tap the flag of")
               .foregroundStyle(.white)
               .font(.subheadline.weight(.heavy))
@@ -48,6 +49,9 @@ struct ContentView: View {
           .clipShape(.rect(cornerRadius: 20))
         }
         
+        Spacer()
+        Spacer()
+        
         Text("Score: ???")
           .foregroundStyle(.white)
           .font(.title.bold())
@@ -55,7 +59,10 @@ struct ContentView: View {
           .background(.ultraThinMaterial)
           .clipShape(.rect(cornerRadius: 20))
           .padding(.horizontal, 90)
+        
+        Spacer()
       }
+      .padding()
     }
     .alert(scoreTitle, isPresented: $showingScore) {
       Button("Continue", action:askQuestion)
