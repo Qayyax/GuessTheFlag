@@ -20,6 +20,20 @@ struct FlagImage: View {
   }
 }
 
+struct Title: ViewModifier {
+  func body(content: Content) -> some View {
+    content
+      .font(.largeTitle.bold())
+      .foregroundStyle(.white)
+      .shadow(color: .black, radius: 2)
+  }
+}
+extension View {
+  func titleStyle() -> some View {
+    self.modifier(Title())
+  }
+}
+
 struct ContentView: View {
   @State private var showingScore = false
   @State private var scoreTitle = ""
@@ -38,9 +52,7 @@ struct ContentView: View {
       VStack(spacing: 20){
         Spacer()
         Text("Guess the Flag")
-          .font(.largeTitle.bold())
-          .foregroundStyle(.white)
-          .shadow(color: .black, radius: 2)
+          .titleStyle()
         VStack(spacing: 15) {
           VStack (spacing: 5){
             Text("Tap the flag of")
